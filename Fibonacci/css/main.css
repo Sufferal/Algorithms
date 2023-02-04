@@ -1,3 +1,69 @@
+@import url("./default.css");
+@import url("./utilities.css");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+
+:root {
+  --primary-color: #fff;
+  --primary-font: 'Nunito', sans-serif;
+
+  --red: #CF0000;
+  --green: #006639; 
+  --black: #000;
+}
+
 body {
-  background: red;
+  width: 100vw;
+  height: 100vh;
+
+  font-family: var(--primary-font);
+  color: var(--primary-color);
+
+  background: url('../img/spiral.jpg') no-repeat center/cover;
+}
+
+.input-wrapper {
+  margin-top: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-wrapper #fibo-num {
+  font-size: 2rem;
+  padding: 0.5rem 1.5rem;
+  text-align: right;
+  direction: rtl;
+}
+
+.btn-wrapper {
+  margin-top: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-wrapper .btn {
+  margin-right: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.btn-wrapper #find-one-btn:hover {
+  background: var(--red);
+  color: var(--primary-color);
+}
+
+.btn-wrapper #find-one-btn:hover .text-red {
+  color: var(--primary-color);
+}
+
+.btn-wrapper #find-many-btn:hover {
+  background: var(--green);
+  color: var(--primary-color);
+}
+
+.btn-wrapper #find-many-btn:hover .text-green {
+  color: var(--primary-color);
 }

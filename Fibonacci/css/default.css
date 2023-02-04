@@ -1,0 +1,28 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+button, input {
+  font-family: var(--primary-font);
+  background: var(--primary-color);
+  border-radius: 3px;
+}
+
+button {
+  padding: 0.75rem 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}

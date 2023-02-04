@@ -30,6 +30,7 @@ body {
 }
 
 .input-wrapper #fibo-num {
+  margin-right: 2rem;
   border: 2px solid var(--red);
   font-size: 2rem;
   padding: 0.5rem 1.5rem;
@@ -78,11 +79,4 @@ body {
   color: var(--green);
 }
 
-#results .time-wrapper {
-  display: flex;
-  align-items: center;
-}
 
-.time-wrapper .result-time {
-  margin-right: 1rem;
-}

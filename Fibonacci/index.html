@@ -40,28 +40,41 @@
   <body>
     <div class="container">
       <div class="input-wrapper">
-        <input type="number" name="fibo-num" id="fibo-num" />
+        <input
+          type="number"
+          name="fibo-num"
+          id="fibo-num"
+          placeholder="...Enter a number"
+          mi
+        />
       </div>
 
       <div class="btn-wrapper">
-        <button id="find-one-btn" class="btn">
-          Find <span class="text text-red">ONE</span> Fibonacci number
-        </button>
-        <button id="find-many-btn" class="btn">
-          Find <span class="text text-green">MANY</span> Fibonacci numbers
-        </button>
+        <button id="start-btn" class="btn">START</button>
       </div>
 
       <div class="btn-wrapper algo-wrapper">
-        <button class="algo algo-1 btn text text-red">Algo 1</button>
+        <button class="algo algo-1 btn active text text-red">Recursive</button>
         <button class="algo algo-2 btn text text-red">Algo 2</button>
         <button class="algo algo-3 btn text text-red">Algo 3</button>
         <button class="algo algo-4 btn text text-red">Algo 4</button>
         <button class="algo algo-5 btn text text-red">Algo 5</button>
         <button class="algo algo-6 btn text text-red">Algo 6</button>
       </div>
+
+      <div id="results">
+        <div id="stopwatch">
+          <div class="time-wrapper">
+            <h2 class="result-time">Time:</h2>
+            <h2 id="timer" class="result-time">00:00:00.000</h2>
+          </div>
+        </div>
+        <h2 class="result-numbers">Numbers:</h2>
+      </div>
     </div>
 
+
+    <script src="./js/timer.js"></script>
     <script src="./js/main.js"></script>
   </body>
 </html>

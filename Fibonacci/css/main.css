@@ -30,10 +30,15 @@ body {
 }
 
 .input-wrapper #fibo-num {
+  border: 2px solid var(--red);
   font-size: 2rem;
   padding: 0.5rem 1.5rem;
   text-align: right;
   direction: rtl;
+}
+
+.input-wrapper #fibo-num:focus {
+  border-color: var(--green);
 }
 
 .btn-wrapper {
@@ -44,14 +49,15 @@ body {
   align-items: center;
 }
 
-.btn-wrapper #find-one-btn:hover,
-.btn-wrapper #find-many-btn:hover {
-  background: var(--red);
+.btn-wrapper #start-btn {
+  min-width: 15rem; 
+  background: var(--green);
   color: var(--primary-color);
+  margin-right: 0;
 }
 
-.btn-wrapper #find-one-btn:hover .text,
-.btn-wrapper #find-many-btn:hover .text {
+.btn-wrapper #start-btn:hover {
+  background: var(--red);
   color: var(--primary-color);
 }
 
@@ -59,3 +65,24 @@ body {
   padding: 1rem 4rem;
 }
 
+#results {
+  height: 100vh;
+  padding: 5rem;
+  margin-top: 3rem;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+#results .result-time,
+#results .result-numbers {
+  font-size: 3rem;
+  color: var(--green);
+}
+
+#results .time-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.time-wrapper .result-time {
+  margin-right: 1rem;
+}

@@ -26,3 +26,7 @@ button {
   cursor: pointer;
   transition: all .2s ease-in-out;
 }
+
+input:focus {
+  outline: none;
+}

@@ -44,26 +44,18 @@ body {
   align-items: center;
 }
 
-.btn-wrapper .btn {
-  margin-right: 2rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.btn-wrapper #find-one-btn:hover {
+.btn-wrapper #find-one-btn:hover,
+.btn-wrapper #find-many-btn:hover {
   background: var(--red);
   color: var(--primary-color);
 }
 
-.btn-wrapper #find-one-btn:hover .text-red {
+.btn-wrapper #find-one-btn:hover .text,
+.btn-wrapper #find-many-btn:hover .text {
   color: var(--primary-color);
 }
 
-.btn-wrapper #find-many-btn:hover {
-  background: var(--green);
-  color: var(--primary-color);
+.algo-wrapper .btn {
+  padding: 1rem 4rem;
 }
 
-.btn-wrapper #find-many-btn:hover .text-green {
-  color: var(--primary-color);
-}

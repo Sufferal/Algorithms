@@ -20,8 +20,19 @@
   }
 }
 
+.btn {
+  margin-right: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.btn.active {
+  background: var(--red);
+  color: var(--primary-color);
+}
+
 .text {
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .text-red {

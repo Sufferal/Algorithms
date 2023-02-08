@@ -52,6 +52,26 @@ startElem.addEventListener("click", () => {
     timeTaken = end - start;
 
     timeElem.textContent += timeTaken + " milliseconds";
+  } 
+  // Dynamic Programming
+  else if(activeButton.classList.contains("algo-2")) {
+    // Compute TILL that number
+    if (computeElem.classList.contains("active")) {
+      start = performance.now();
+      for (let i = 0; i < numValue; i++) {
+        resultElem.textContent += fiboDynamic(i) + ", ";
+      }
+      end = performance.now();
+      timeTaken = end - start;
+    }
+
+    // Computer ONLY that number
+    start = performance.now();
+    resultElem.textContent += fiboDynamic(numValue);
+    end = performance.now();
+    timeTaken = end - start;
+
+    timeElem.textContent += timeTaken + " milliseconds";
   }
 
   inputElem.value = "";

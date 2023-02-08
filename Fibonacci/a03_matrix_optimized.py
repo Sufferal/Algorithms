@@ -30,9 +30,9 @@ def multiply(F, M):
          
 def power(F, n):
   if( n == 0 or n == 1):
-      return;
+      return
   M = [[1, 1],
-       [1, 0]];
+       [1, 0]]
          
   power(F, n // 2)
   multiply(F, F)
@@ -53,6 +53,9 @@ if __name__ == "__main__":
 
   for i in values:
     time_arr.append(get_time_fibonum(i))
+  
+  for i in range(len(values)):
+    print(values[i], '->', time_arr[i])
     
   plt.plot(values, time_arr,  color = 'green', marker = 'o', markersize = 5, 
           markeredgecolor = 'black', markerfacecolor = 'none')

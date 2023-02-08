@@ -2,20 +2,22 @@ import time
 import matplotlib.pyplot as plt
 
 def fibonacci(n):
-  if n == 0:
-    return 0
-  elif n == 1:
-    return 1
-  else:
-    prev = 0
-    current = 1
-
-    for _ in range(2, n + 1):
-      temp = prev + current
-      prev = current
-      current = temp
-
-    return current
+    if n > 0:
+        n1, n2 = 1, 1
+        if n > 3:
+            for _ in range((n//3)):
+                # << 2 => multiply by 4
+                n1, n2 = n2, (n2 << 2)+n1  
+        if n % 3 == 0:
+            return n1
+        elif n % 3 == 1:
+            # >> 1   is divide by 2  'F1'
+            return (n2 - n1) >> 1  
+        elif n % 3 == 2:
+             # >> 1   is divide by 2  'F2'
+            return (n2 + n1) >> 1 
+    else:
+        return -1
 
 def get_time_fibonum(num):
   start = time.perf_counter()
@@ -31,11 +33,14 @@ if __name__ == "__main__":
   for i in values:
     time_arr.append(get_time_fibonum(i))
   
+  for i in range(len(values)):
+    print(values[i], '->', time_arr[i])
+  
   plt.plot(values, time_arr,  color = 'violet', marker = 'o', markersize = 5, 
           markeredgecolor = 'black', markerfacecolor = 'none')
   plt.xlabel('n-th Fibonacci Term')
   plt.ylabel('Time, s')
-  plt.title('Space-Time Trade-Off Algorithm')
+  plt.title('Kartik Algorithm')
   plt.grid(True)
   plt.show()
   

@@ -19,8 +19,8 @@ if __name__ == "__main__":
   for i in values:
     time_arr.append(get_time_fibonum(i))
 
-  # for i in range(len(values)):
-  #   print(values[i], '->', time_arr[i])
+  for i in range(len(values)):
+    print(values[i], '->', time_arr[i])
 
   plt.plot(values, time_arr,  color='red', marker='o', markersize=6, 
           markeredgecolor='black', markerfacecolor='none')

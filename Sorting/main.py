@@ -9,7 +9,7 @@ random.seed(666)
 
 # Generate a list of random integers of length n
 def generate_random_list(n):
-  return [random.randint(0, 100) for _ in range(n)]
+  return [random.randint(0, n) for _ in range(n)]
 
 # Quick Sort
 def quick_sort(arr):

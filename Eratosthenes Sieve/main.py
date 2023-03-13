@@ -1,6 +1,7 @@
 import math
 import time
 import matplotlib.pyplot as plt
+import prettytable
 
 # Eratosthenes Sieve
 def algorithm_1(n):
@@ -141,11 +142,71 @@ def plot_graphs():
   plt.grid()
   plt.show()
 
+# Time the algorithms
+def print_times():
+  times_1 = [] 
+  times_2 = []
+  times_3 = []
+  times_4 = []
+  times_5 = []
+
+  # Run the algorithms and time them
+  for n in n_list:
+    t1_start = time.perf_counter()
+    algorithm_1(n)
+    t1_end = time.perf_counter()
+    print(f"Algorithm 1: List length = {n}; time = {t1_end - t1_start} seconds")
+
+    t2_start = time.perf_counter()
+    algorithm_2(n)
+    t2_end = time.perf_counter()
+    print(f"Algorithm 2: List length = {n}; time = {t2_end - t2_start} seconds")
+
+    t3_start = time.perf_counter()
+    algorithm_3(n)
+    t3_end = time.perf_counter()
+    print(f"Algorithm 3: List length = {n}; time = {t3_end - t3_start} seconds")
+
+    t4_start = time.perf_counter()
+    algorithm_4(n)
+    t4_end = time.perf_counter()
+    print(f"Algorithm 4: List length = {n}; time = {t4_end - t4_start} seconds")
+
+    t5_start = time.perf_counter()
+    algorithm_5(n)
+    t5_end = time.perf_counter()
+    print(f"Algorithm 5: List length = {n}; time = {t5_end - t5_start} seconds")
+
+    times_1.append(t1_end - t1_start)
+    times_2.append(t2_end - t2_start)
+    times_3.append(t3_end - t3_start)
+    times_4.append(t4_end - t4_start)
+    times_5.append(t5_end - t5_start)
+  
+  # Format the results
+  times_1 = [f"{time:.5f}" for time in times_1]
+  times_2 = [f"{time:.5f}" for time in times_2]
+  times_3 = [f"{time:.5f}" for time in times_3] 
+  times_4 = [f"{time:.5f}" for time in times_4]
+  times_5 = [f"{time:.5f}" for time in times_5]
+
+  # Print the results in a table
+  t = prettytable.PrettyTable(['Algorithm / n', *n_list])
+  t.add_row(['Algorithm 1', *times_1])
+  t.add_row(['Algorithm 2', *times_2])
+  t.add_row(['Algorithm 3', *times_3])
+  t.add_row(['Algorithm 4', *times_4])
+  t.add_row(['Algorithm 5', *times_5])
+  print(t)
+
 # Run the main function
 if __name__ == "__main__":
+  print_times()
+
   # plot_graph("Algorithm 1", algorithm_1, "blue")
   # plot_graph("Algorithm 2", algorithm_2, "orange")
   # plot_graph("Algorithm 3", algorithm_3, "green")
   # plot_graph("Algorithm 4", algorithm_4, "red")
   # plot_graph("Algorithm 5", algorithm_5, "purple")
-  plot_graphs()
+  
+  # plot_graphs()

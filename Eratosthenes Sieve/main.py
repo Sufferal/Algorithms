@@ -94,6 +94,33 @@ def plot_graph(algo_name, algo_func, algo_color="blue"):
   plt.grid()
   plt.show()
 
+# Plot 2 graphs
+def plot_2_graphs(algo_1_name, algo_1_func, algo_1_color, 
+                 algo_2_name, algo_2_func, algo_2_color):
+  algo_times_1 = []
+  algo_times_2 = []
+
+  for n in n_list:
+    start_1 = time.perf_counter()
+    algo_1_func(n)
+    end_1 = time.perf_counter()
+    
+    start_2 = time.perf_counter()
+    algo_2_func(n)
+    end_2 = time.perf_counter()
+
+    algo_times_1.append(end_1 - start_1)
+    algo_times_2.append(end_2 - start_2)
+
+  plt.plot(n_list, algo_times_1, label=algo_1_name, color=algo_1_color)
+  plt.plot(n_list, algo_times_2, label=algo_2_name, color=algo_2_color)
+  plt.title(algo_1_name + " vs " + algo_2_name)
+  plt.xlabel("Number of elements in the list, (n)")
+  plt.ylabel("Time, (s)")
+  plt.grid()
+  plt.legend()
+  plt.show()  
+
 # Plot the results
 def plot_graphs():
   times_1 = [] 
@@ -201,12 +228,14 @@ def print_times():
 
 # Run the main function
 if __name__ == "__main__":
-  print_times()
+  # print_times()
 
   # plot_graph("Algorithm 1", algorithm_1, "blue")
   # plot_graph("Algorithm 2", algorithm_2, "orange")
   # plot_graph("Algorithm 3", algorithm_3, "green")
   # plot_graph("Algorithm 4", algorithm_4, "red")
   # plot_graph("Algorithm 5", algorithm_5, "purple")
-  
-  # plot_graphs()
+
+  # plot_2_graphs("Algorithm 2", algorithm_2, "orange", "Algorithm 3", algorithm_3, "green")
+
+  plot_graphs()

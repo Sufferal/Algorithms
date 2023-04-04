@@ -1,0 +1,13 @@
+2 graph-uri: 1 balansat, 1 unbalanced
+minim 8 vertices
+cauti 5 vertices for each graph
+
+DFS vs BFS
+
+Time: 
+  search 1 node  = 1 time
+  search 2 nodes  = AVG(1 time + 2 time)
+  search 3 nodes  = AVG(1 time + 2 time + 3 time)
+  search 4 nodes  = AVG(1 time + 2 time + 3 time + 4 time)
+  search 5 nodes  = AVG(1 time + 2 time + 3 time + 4 time + 5 time)
+

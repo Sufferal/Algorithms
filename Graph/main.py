@@ -6,6 +6,7 @@ import collections
 import time
 import random
 import prettytable
+import numpy as np
 
 # Define the DFS algorithm
 def dfs(graph, start, target, visited=None, print_path=False):
@@ -177,8 +178,33 @@ def time_algorithms():
   return num_nodes, dfs_times_balanced, bfs_times_balanced, dfs_times_unbalanced, bfs_times_unbalanced
 
 def plot_results():
-  results = time_algorithms()
-  print(results)
+    num_nodes, dfs_times_balanced, bfs_times_balanced, dfs_times_unbalanced, bfs_times_unbalanced = time_algorithms()
+
+    x_axis = np.arange(len(num_nodes))
+
+    # Plot results for the balanced graph
+    plt.bar(x_axis - 0.2, bfs_times_balanced, 0.4, label='BFS', color='orange')
+    plt.bar(x_axis + 0.2, dfs_times_balanced, 0.4, label='DFS', color='purple')
+
+    # Plot the graph
+    plt.xticks(x_axis, num_nodes)
+    plt.title('Balanced graph')
+    plt.xlabel('Number of searched nodes')
+    plt.ylabel('Time, (s)')
+    plt.legend()
+    plt.show()
+
+    # Plot results for the unbalanced graph
+    plt.bar(x_axis - 0.2, bfs_times_unbalanced, 0.4, label='BFS', color='orange')
+    plt.bar(x_axis + 0.2, dfs_times_unbalanced, 0.4, label='DFS', color='purple')
+
+    # Plot the graph
+    plt.xticks(x_axis, num_nodes)
+    plt.title('Unbalanced graph')
+    plt.xlabel('Number of searched nodes')
+    plt.ylabel('Time, (s)')
+    plt.legend()
+    plt.show()
 
 if __name__ == "__main__":
     # time_algorithms()

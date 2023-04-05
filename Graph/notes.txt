@@ -11,3 +11,8 @@ Time:
   search 4 nodes  = AVG(1 time + 2 time + 3 time + 4 time)
   search 5 nodes  = AVG(1 time + 2 time + 3 time + 4 time + 5 time)
 
+Balanced
+http://graphonline.ru/en/?graph=zegZrRDTIpJNBSlM
+Unbalanced
+http://graphonline.ru/en/?graph=mFVdQANIlPZwqIyv
+

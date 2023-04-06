@@ -8,6 +8,8 @@ import random
 import prettytable
 import numpy as np
 
+figure_count = 1
+
 # Define the DFS algorithm
 def dfs(graph, start, target, visited=None, print_path=False):
     if visited is None:
@@ -52,20 +54,27 @@ def bfs(graph, start, target, print_path=False):
     print("Target node not reachable from the start node")
     return False
 
-# # Create a balanced graph
-# g1 = nx.Graph()
-# g1.add_edges_from([(1, 2), (1, 3), (2, 4), (2, 5), (3, 6), (3, 7), (4, 8), (4, 9), (5, 10), (5, 11),
-#                   (6, 12), (6, 13), (7, 14), (7, 15)])
-# pos1 = nx.nx_pydot.graphviz_layout(g1, prog="dot")
-# nx.draw(g1, pos=pos1, with_labels=True, font_color="white")
-# plt.show()
+def plot_graphs():
+  global figure_count
 
-# # Create an unbalanced graph
-# g2 = nx.Graph()
-# g2.add_edges_from([(1, 2), (1, 3), (1, 7), (2, 4), (3, 8), (4, 5), (5, 6), (6, 15), (6, 16), (7, 9), (7, 13), (8, 10), (9, 11), (9, 12), (11, 14)])
-# pos2 = nx.nx_pydot.graphviz_layout(g2, prog="dot")
-# nx.draw(g2, pos=pos2, with_labels=True, font_color="white")
-# plt.show()
+  # Create a balanced graph
+  plt.figure(figure_count)
+  g1 = nx.Graph()
+  g1.add_edges_from([(1, 2), (1, 3), (2, 4), (2, 5), (3, 6), (3, 7), (4, 8), (4, 9), (5, 10), (5, 11),
+                    (6, 12), (6, 13), (7, 14), (7, 15)])
+  pos1 = nx.nx_pydot.graphviz_layout(g1, prog="dot")
+  nx.draw(g1, pos=pos1, with_labels=True, font_color="white")
+
+  figure_count += 1
+
+  # Create an unbalanced graph
+  plt.figure(figure_count)
+  g2 = nx.Graph()
+  g2.add_edges_from([(1, 2), (1, 3), (1, 7), (2, 4), (3, 8), (4, 5), (5, 6), (6, 15), (6, 16), (7, 9), (7, 13), (8, 10), (9, 11), (9, 12), (11, 14)])
+  pos2 = nx.nx_pydot.graphviz_layout(g2, prog="dot")
+  nx.draw(g2, pos=pos2, with_labels=True, font_color="white")
+
+  figure_count += 1
 
 graph_balanced = {
     1: [2, 3],
@@ -177,12 +186,54 @@ def time_algorithms():
 
   return num_nodes, dfs_times_balanced, bfs_times_balanced, dfs_times_unbalanced, bfs_times_unbalanced
 
+def plot_individual_results():
+  num_nodes, dfs_times_balanced, bfs_times_balanced, dfs_times_unbalanced, bfs_times_unbalanced = time_algorithms()
+
+  global figure_count
+  
+  plt.figure(figure_count)
+  plt.bar(num_nodes, dfs_times_balanced, label='DFS', color='purple')
+  plt.title('DFS Balanced graph')
+  plt.xlabel('Number of searched nodes')
+  plt.ylabel('Time, (s)')
+
+  figure_count += 1
+
+  plt.figure(figure_count)
+  plt.bar(num_nodes, bfs_times_balanced, label='BFS', color='orange')
+  plt.title('BFS Balanced graph')
+  plt.xlabel('Number of searched nodes')
+  plt.ylabel('Time, (s)')
+
+  figure_count += 1
+
+  plt.figure(figure_count)
+  plt.bar(num_nodes, dfs_times_unbalanced, label='DFS', color='purple')
+  plt.title('DFS Unbalanced graph')
+  plt.xlabel('Number of searched nodes')
+  plt.ylabel('Time, (s)')
+
+  figure_count += 1
+
+  plt.figure(figure_count)
+  plt.bar(num_nodes, bfs_times_unbalanced, label='BFS', color='orange')
+  plt.title('BFS Unbalanced graph')
+  plt.xlabel('Number of searched nodes')
+  plt.ylabel('Time, (s)')
+
+  figure_count += 1
+
+  plt.show()
+   
+
 def plot_results():
     num_nodes, dfs_times_balanced, bfs_times_balanced, dfs_times_unbalanced, bfs_times_unbalanced = time_algorithms()
+    global figure_count
 
     x_axis = np.arange(len(num_nodes))
 
     # Plot results for the balanced graph
+    plt.figure(figure_count)
     plt.bar(x_axis - 0.2, bfs_times_balanced, 0.4, label='BFS', color='orange')
     plt.bar(x_axis + 0.2, dfs_times_balanced, 0.4, label='DFS', color='purple')
 
@@ -192,11 +243,15 @@ def plot_results():
     plt.xlabel('Number of searched nodes')
     plt.ylabel('Time, (s)')
     plt.legend()
-    plt.show()
+
+    figure_count += 1
 
     # Plot results for the unbalanced graph
+    plt.figure(figure_count)
     plt.bar(x_axis - 0.2, bfs_times_unbalanced, 0.4, label='BFS', color='orange')
     plt.bar(x_axis + 0.2, dfs_times_unbalanced, 0.4, label='DFS', color='purple')
+
+    figure_count += 1
 
     # Plot the graph
     plt.xticks(x_axis, num_nodes)
@@ -208,6 +263,9 @@ def plot_results():
 
 if __name__ == "__main__":
     # time_algorithms()
-    plot_results()
+    
+    # plot_graphs()
+    # plot_results()
+    plot_individual_results()
 
 
